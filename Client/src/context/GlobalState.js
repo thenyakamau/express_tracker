@@ -22,9 +22,10 @@ export function GlobalProvider({ children }) {
 
   //Actions
   async function getTransactions() {
+    state.loading = true;
     try {
       const response = await AxiosGetData("", "");
-      console.log(response.data);
+      
       dispatch({
         type: "GET_TRANSACTIONS",
         payload: response.data.data,
@@ -38,6 +39,7 @@ export function GlobalProvider({ children }) {
   }
 
   async function deleteTransaction(id) {
+    state.loading = true;
     try {
       await AxiosDeleteData(id);
       dispatch({
@@ -53,6 +55,8 @@ export function GlobalProvider({ children }) {
   }
 
   async function addTransaction(transaction) {
+    state.loading = true;
+    
     try {
       const response = await AxiosPostData("", transaction);
       dispatch({

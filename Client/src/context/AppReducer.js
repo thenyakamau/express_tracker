@@ -3,6 +3,7 @@ export default function (state, action) {
     case "DELETE_TRANSACTION":
       return {
         ...state,
+        loading: false,
         transactions: state.transactions.filter(
           (transaction) => transaction._id !== action.payload
         ),
@@ -10,6 +11,7 @@ export default function (state, action) {
     case "ADD_TRANSACTION":
       return {
           ...state,
+          loading: false,
           transactions: [...state.transactions, action.payload]
       };
     case "GET_TRANSACTIONS" :
@@ -21,6 +23,7 @@ export default function (state, action) {
       case "TRANSACTION_ERROR": 
       return {
         ...state,
+        loading: false,
         error: action.payload
       };
     default:
