@@ -8,7 +8,7 @@
         "server": "nodemon server",
         "client": "npm start --prefix Client",
         "dev": "concurrently \"npm run server\" \"npm run client\"",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "heroku-postbuild": "npm run build --prefix Client"
     },
     "author": "Thenya Kamau",
     "license": "ISC",
